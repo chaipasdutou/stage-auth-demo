@@ -1,0 +1,20 @@
+# Test Technique - Authentification Symfony / Vue.js
+
+## Installation
+1. Cloner le répôt : `git clone ...`
+2. Installer les dépendances PHP : `composer install`
+3. Configurer la base de données dans `.env`
+4. Créer la base : `php bin/console doctrine:database:create`
+5. Exécuter les migrations : `php bin/console doctrine:migrations:migrate`
+6. Lancer le serveur : `symfony serve`
+
+## Fonctionnalités implémentées
+- Inscription avec validation robuste du mot de passe.
+- Connexion / Déconnexion sécurisée.
+- Validation en temps réel (Vue.js 3) et côté serveur (Symfony).
+- Interface styled avec Tailwind CSS.
+
+## Points techniques abordés
+- Symfony Security, Entity, Form, Validator.
+- Composant Vue 3 réactif (Composition API).
+- Design utilitaire avec Tailwind.
