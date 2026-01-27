@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Technique Aut{% endblock %}</title>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body class="bg-gray-50 min-h-screen">
+        {#Navigation#}
+        <nav class="bg-white shadow-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="text-xl font-bold text-blue-600">Auth Demo</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        {% if app.user %}
+                            <span class="text-gray-700">Bonjour {{ app.user.email }}</span>
+                            <a href="{{ path('app_logout') }}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                                Déconnexion
+                            </a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="text-blue-600 hover:text-blue-800">Connexion</a>
+                            <a href="{{ path('app_register') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                Inscription
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {#Contenu principal#}
+        <main class="container mx-auto px-4 py-8">
+            {% block body %}{% endblock %}
+        </main>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
