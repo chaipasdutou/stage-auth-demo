@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -11,18 +10,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 final class SecurityController extends AbstractController
 {
     #[Route('/security', name: 'app_security')]
-    public function index(): JsonResponse
+    public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/SecurityController.php',
-        ]);
-    }
-
-    #[Route('/register', name: 'app_register')]
-    public function register(): Response
-    {
-        return $this->render('security/register.html.twig');
+        return $this->render('security/index.html.twig');
     }
 
     #[Route('/login', name: 'app_login')]

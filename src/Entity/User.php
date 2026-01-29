@@ -33,12 +33,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Assert\NotBlank(message: "Le mot de passe est obligatoire")]
-    #[Assert\Length(min: 8, minMessage: "Le mot de passe doit contenir au moins 8 caractères")]
-    #[Assert\Regex(
-        pattern: "/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/",
-        message: "Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial (@$!%*?&)"
-    )]
     private ?string $password = null;
 
     public function getId(): ?int
